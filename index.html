@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create music from text prompts with My Music Maker - An AI-powered music generation tool">
+    <meta name="keywords" content="music maker, AI music, text to music, song generator">
+    <meta name="author" content="My Music Maker">
+    <meta property="og:title" content="My Music Maker - Create Music from Text">
+    <meta property="og:description" content="Transform your ideas into music with AI-powered text-to-song generation">
+    <meta property="og:type" content="website">
+    <title>My Music Maker - Create Music from Text</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">My Music Maker</h1>
+            <p class="subtitle">Create music from text!</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Generation Form -->
+            <section class="generation-form">
+                <form id="musicForm" class="form">
+                    <div class="form-group">
+                        <label for="prompt" class="label">Describe your song:</label>
+                        <textarea 
+                            id="prompt" 
+                            name="prompt" 
+                            placeholder="e.g., A happy pop song about summer love"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre" class="label">Genre:</label>
+                        <select id="genre" name="genre" required>
+                            <option value="">Select a genre</option>
+                            <option value="pop">Pop</option>
+                            <option value="rock">Rock</option>
+                            <option value="lo-fi">Lo-fi</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="folk">Folk</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="generate-btn" id="generateBtn">
+                        <span class="btn-text">Generate Music</span>
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Output Section -->
+            <section class="output-section" id="outputSection" style="display: none;">
+                <h2 class="output-title">Generated Song</h2>
+                <div class="song-card">
+                    <div class="song-header">
+                        <h3 class="song-title" id="songTitle"></h3>
+                        <span class="song-genre" id="songGenre"></span>
+                    </div>
+                    
+                    <div class="lyrics-section">
+                        <h4 class="lyrics-title">Lyrics</h4>
+                        <div class="lyrics" id="lyricsContent"></div>
+                    </div>
+
+                    <div class="audio-section">
+                        <h4 class="audio-title">Audio Player</h4>
+                        <div class="audio-player">
+                            <div class="audio-controls">
+                                <button class="play-btn" id="playBtn">▶</button>
+                                <div class="progress-bar">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                                <span class="duration">3:24</span>
+                            </div>
+                            <p class="audio-note">* This is a demo player. In a real app, this would play your generated song.</p>
+                        </div>
+                    </div>
+
+                    <div class="song-actions">
+                        <button class="action-btn download-btn">Download</button>
+                        <button class="action-btn share-btn">Share</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <button class="history-btn" id="historyBtn">View History</button>
+                <div class="history-content" id="historyContent" style="display: none;">
+                    <h3 class="history-title">Generation History</h3>
+                    <div class="history-list" id="historyList"></div>
+                    <button class="clear-history-btn" id="clearHistoryBtn">Clear History</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 My Music Maker. Created for demo purposes.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
